@@ -1,0 +1,80 @@
+mainmenu "Nufront Product Configuration"
+
+config NP2_VERSION
+	string
+	default "1.0"
+
+menu "Board Config"
+endmenu
+
+menu "Drivers"
+
+config wifi.exist
+	tristate "WIFI"
+	default y
+	help
+	  This option will enable the use of wifi.
+
+choice
+	prompt "WiFi Drivers"
+	depends on wifi.exist
+	default NW51
+	help
+	  Set the wifi.
+
+config NW51
+	bool "NW51"
+	help
+	  Use NW51 as default WiFi driver.
+
+config NW53
+	bool "NW53"
+	help
+	  Use NW53 as default WiFi driver.
+
+endchoice
+
+config bluetooth.exist
+	bool "Bluetooth"
+	help
+	  This option will enable the use of Bluetooth.
+
+
+config bluetooth.exist.test2
+	string "Bluetoothxxxx"
+	help
+	  This option will enable the use of Bluetooth.
+
+config bluetooth.exist.test3
+	hex "Bluetoothxxxx"
+	help
+	  This option will enable the use of Bluetooth.
+
+menu "HDMI"
+config hdmi.exist
+	bool "HDMI"
+	default y
+	help
+	  This option will enable the use of hdmi.
+
+config hdmi.dual_display
+	bool "HDMI dual display"
+	default y
+	help
+	  This option will enable the use of hdmi dual display.
+
+endmenu
+
+config gps.exist
+	bool "GPS"
+	help
+	  This option will enable the use of GPS.
+endmenu
+menu "Android"
+menu "Features"
+config android.feature.keep_srceen_on
+	bool "Keep Screen On"
+	help
+	  This option will keep screen on, never light-off screen, eg:stick product.
+endmenu
+endmenu
